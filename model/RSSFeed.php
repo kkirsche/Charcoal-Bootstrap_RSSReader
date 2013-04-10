@@ -30,7 +30,7 @@
                 }
 
                 return date("D, F d, Y", $timestamp);
-        }
+        }//end rssToTime($rss_time)
 
         public function getFeed($feed_url) {
             $content = file_get_contents($feed_url);
@@ -38,21 +38,21 @@
 
             foreach($xml->channel->item as $entry) {
                 $output = "";
-                //get everything ready
-                $entry->shortDescription = substr($entry->description, 0, strpos($entry->description," ",1500));
-                //send it to the browser
-                $output .= "<article>";
-                    $output .= "<h3><a href=\"$entry->link\" title=\"$entry->title\" class=\"articleTitle\">" . $entry->title . "</a></h3>";
-                    if ($entry->category) {
-                        $output .= "<p><strong>Category:</strong> " . $entry->category . " &bull; <strong>Date:</strong> " . $this->rssToTime($entry->pubDate) . "</p>";
-                    }
-                    $output .= $entry->shortDescription;
-                    $output .= "<br />";
-                    $output .= "<a title=\"Read More\" class=\"btn btn-info\">Read More</a>";
-                $output .= "</article><hr />";
 
+                $entry->shortDescription = substr($entry->description, 0, strpos($entry->description," ",1500));
+
+                //send it to the browser
+                    $output .= "<article>";
+                        $output .= "<h3><a href=\"$entry->link\" title=\"$entry->title\" class=\"articleTitle\">" . $entry->title . "</a></h3>";
+                            if ($entry->category) {
+                                $output .= "<p><strong>Category:</strong> " . $entry->category . " &bull; <strong>Date:</strong> " . $this->rssToTime($entry->pubDate) . "</p>";
+                            }
+                        $output .= $entry->shortDescription . "&hellip;";
+                        $output .= "<br /><br />";
+                        $output .= "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+                    $output .= "</article><hr />";
                 echo $output;
-            }
-        }
+            }//end foreach($xml->channel->item as $entry)
+        }//end getFeed($feed_url)
     }
 ?>

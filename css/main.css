@@ -2,5 +2,9 @@
    Author's custom styles
    ========================================================================== */
 ul.nav-list li button {
-    margin: .8em 0 0 0;
+    margin: .8em 0 .8em 0;
+}
+#feedBody {
+    border-left: 1px solid #eee;
+    padding-left: 3em;
 }

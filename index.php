@@ -1,4 +1,7 @@
-<?php require_once "model/RSSFeed.php"; ?>
+<?php
+    require_once "model/RSSFeed.php";
+    $RSSFeed = new RSSFeed();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -50,16 +53,17 @@
 
         <div class="container">
             <div class="row">
-                <div class="span3">
+                <div class="span4">
                     <ul class="nav nav-list">
                         <li class="active"><a href="#">Home</a></li>
                         <li>
-                            <div class="btn-group">
-                                <button class="btn dropdown-toggle" data-toggle="dropdown">Subscribe <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li>Something</li>
-                                </ul>
-                            </div>
+                                <button class="btn" data-toggle="collapse" data-target="#subscribeToNewFeed">Subscribe <span class="caret"></span></button>
+
+                                <div id="subscribeToNewFeed" class="collapse in">
+                                    <form action="#" method="get">
+                                        <input type="text" class="span3" />
+                                    </form>
+                                </div>
                         </li>
                         <li class="divider"></li>
                         <li class="nav-header">All Items</li>
@@ -68,7 +72,7 @@
                         <li class="divider"></li>
                         <li class="nav-header">Subscriptions</li>
                         <ul class="nav nav-list">
-                            <li><a href="#" data-toggle="collapse" data-target="#Apple"><i class="icon-folder-open folderIcon"></i> Apple</a></li>
+                            <li><a href="#" data-toggle="collapse" data-target="#Apple"><i class="icon-folder-close"></i> Apple</a></li>
                             <div class="collapse in" id="Apple">
                                 <ul class="nav nav-list">
                                     <li><a href="#"><img src="img/exampleFiles/cultOfMac.png" alt="Cult of Mac" /> Cult of Mac</a></li>
@@ -91,11 +95,10 @@
                         </ul>
                     </ul>
                 </div><!--/div.span3-->
-                <div class="span9">
+                <div class="span7" id="feedBody">
                     <article>
                         <?php 
-                            $RSSFeed = new RSSFeed();
-                            $RSSFeed->getFeed("http://feedproxy.google.com/nettuts") 
+                            $RSSFeed->getFeed("http://feedproxy.google.com/nettuts");
                         ?>
                     </article>
                     <hr />
