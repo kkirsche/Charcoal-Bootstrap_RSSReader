@@ -12,12 +12,16 @@ $(document).ready(function() {
                 $("#feedBody").html("<div class=\"alert alert-info span7\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button><strong>Loading Feed&hellip;</strong>");
             },
             cache: false,
+            dataType: "html",
             success: function(result) {
                 $("#feedBody").html(result);
+                alert(result);
             },
             error: function(result) {
                 $("#feedBody").hide();
-            }
+                alert("Error!");
+            },
+            type: "GET",
         });
     });
 });

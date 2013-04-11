@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="span7" id="feedBody">
                         <?php
-                            $RSSFeed->getFeed("http://feedproxy.google.com/nettuts");
+                            $RSSFeed->getFeed("http://rss1.smashingmagazine.com/feed/");
                         ?>
                     </div>
                 </div>

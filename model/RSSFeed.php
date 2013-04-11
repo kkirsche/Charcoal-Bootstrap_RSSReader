@@ -1,70 +1,58 @@
 <?php
     //Hanlde all actions related to RSS Feeds
     require_once('Database.php');
+    require_once("model/simplepie/autoloader.php");
+    function shorten($string, $length)
+    {
+        // By default, an ellipsis will be appended to the end of the text.
+        $suffix = '&hellip;';
+     
+        // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
+        // and convert all tabs and line-break characters to single spaces.
+        $short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($string)));
+     
+        // Cut the string to the requested length, and strip any extraneous spaces 
+        // from the beginning and end.
+        $desc = trim(substr($short_desc, 0, $length));
+     
+        // Find out what the last displayed character is in the shortened string
+        $lastchar = substr($desc, -1, 1);
+     
+        // If the last character is a period, an exclamation point, or a question 
+        // mark, clear out the appended text.
+        if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?') $suffix='';
+     
+        // Append the text.
+        $desc .= $suffix;
+     
+        // Send the new description back to the page.
+        return $desc;
+    }
     class RSSFeed {
 
-        private function rssToTime($rss_time) {
-                $day = substr($rss_time, 5, 2);
-                $month = substr($rss_time, 8, 3);
-                $month = date('m', strtotime("$month 1 2011"));
-                $year = substr($rss_time, 12, 4);
-                $hour = substr($rss_time, 17, 2);
-                $min = substr($rss_time, 20, 2);
-                $second = substr($rss_time, 23, 2);
-                $timezone = substr($rss_time, 26);
-
-                $timestamp = mktime($hour, $min, $second, $month, $day, $year);
-
-                date_default_timezone_set('America/New_York');
-
-                if(is_numeric($timezone)) {
-                    $hours_mod = $mins_mod = 0;
-                    $modifier = substr($timezone, 0, 1);
-                    $hours_mod = (int) substr($timezone, 1, 2);
-                    $mins_mod = (int) substr($timezone, 3, 2);
-                    $hour_label = $hours_mod>1 ? 'hours' : 'hour';
-                    $strtotimearg = $modifier.$hours_mod.' '.$hour_label;
-                    if($mins_mod) {
-                        $mins_label = $mins_mod>1 ? 'minutes' : 'minute';
-                        $strtotimearg .= ' '.$mins_mod.' '.$mins_label;
-                    }
-                    $timestamp = strtotime($strtotimearg, $timestamp);
-                }
-
-                return date("D, F d, Y", $timestamp);
-        }//end rssToTime($rss_time)
-
         public function getFeed($feed_url) {
-            $content = file_get_contents($feed_url);
-            try { 
-                $xml = new SimpleXmlElement($content); 
-            } catch (Exception $e) { 
-                /* the data provided is not valid XML */
-                echo "<div class=\"alert alert-error span7\">"
-                . "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>"
-                . "<strong>Error!</strong> Invalid feed URL."
-                . "</div>";
-                return false; 
-            }
+            $feed = new SimplePie($feed_url);
+            $feed->init();
+            $feed->handle_content_type();
+            foreach ($feed->get_items() as $item) {
+                $output = "<article>"
+                . "<h3><a href=\"" . $item->get_permalink() . "\" title=\"" . $item->get_title() . "\" class=\"articleTitle\">" . $item->get_title() . "</a></h3><p>";
 
-            foreach($xml->channel->item as $entry) {
-                $output = "";
-                if (strlen($entry->description) > 1500) {
-                    $entry->shortDescription = substr($entry->description, 0, strpos($entry->description," ",1500)) . "&hellip;" . "<br /><br />" . "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
-                } else {
-                    $entry->shortDescription = $entry->description . "<br /><br />" . "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+                if ($category = $item->get_category()) {
+                    $output .= $category->get_label() . " ";
                 }
 
-                //send it to the browser
-                    $output .= "<article>";
-                        $output .= "<h3><a href=\"$entry->link\" title=\"$entry->title\" class=\"articleTitle\">" . $entry->title . "</a></h3>";
-                            if ($entry->category) {
-                                $output .= "<p><strong>Category:</strong> " . $entry->category . " &bull; <strong>Date:</strong> " . $this->rssToTime($entry->pubDate) . "</p>";
-                            }
-                        $output .= $entry->shortDescription;
-                    $output .= "</article><hr />";
+                $output .= $item->get_date();
+
+
+                $output .= "</p><p>";
+
+                $output .= shorten($item->get_description(), 600) . "<br /><br />" . "<a href=\"" . $item->get_permalink() . "\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+
+                $output .= "</p>";
+
                 echo $output;
-            }//end foreach($xml->channel->item as $entry)
+            }//end foreach($feed->get_items() as $item)
         }//end getFeed($feed_url)
 
         public function importRSSFeeds($xmlFile, $DB) {
@@ -103,8 +91,11 @@
         }
     }//end class RSSFeed
 
-    if (isset($_GET['url']) || isset($_POST['url'])) {
+    if (isset($_GET['url'])) {
         $RSS = new RSSFeed();
         $RSS->getFeed($_GET['url']);
+    } else if(isset($_POST['url'])) {
+        $RSS = new RSSFeed();
+        $RSS->getFeed($_POST['url']);
     }
 ?>
