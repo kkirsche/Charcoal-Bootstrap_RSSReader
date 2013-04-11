@@ -1,9 +1,9 @@
 #Charcoal
 ##The Bootstrap powered RSS reader
 
-<hr />
 
-### Version 0.1.0
+
+### Version 0.1.0 — [Demo](http://kkirsche.github.io/Charcoal-Bootstrap_RSSReader/)
 
 ### Dependancies
 * Twitter Bootstrap 2.3.0
