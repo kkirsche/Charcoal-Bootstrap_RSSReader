@@ -1,4 +1,6 @@
 <?php
+    //Hanlde all actions related to RSS Feeds
+    require_once('Database.php');
     class RSSFeed {
 
         private function rssToTime($rss_time) {
@@ -38,8 +40,11 @@
 
             foreach($xml->channel->item as $entry) {
                 $output = "";
-
-                $entry->shortDescription = substr($entry->description, 0, strpos($entry->description," ",1500));
+                if (strlen($entry->description) > 1500) {
+                    $entry->shortDescription = substr($entry->description, 0, strpos($entry->description," ",1500)) . "&hellip;" . "<br /><br />" . "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+                } else {
+                    $entry->shortDescription = $entry->description . "<br /><br />" . "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+                }
 
                 //send it to the browser
                     $output .= "<article>";
@@ -47,16 +52,29 @@
                             if ($entry->category) {
                                 $output .= "<p><strong>Category:</strong> " . $entry->category . " &bull; <strong>Date:</strong> " . $this->rssToTime($entry->pubDate) . "</p>";
                             }
-                        $output .= $entry->shortDescription . "&hellip;";
-                        $output .= "<br /><br />";
-                        $output .= "<a href=\"$entry->link\" title=\"Read More\" class=\"btn btn-info\">Read More</a>";
+                        $output .= $entry->shortDescription;
                     $output .= "</article><hr />";
                 echo $output;
             }//end foreach($xml->channel->item as $entry)
         }//end getFeed($feed_url)
+
+        public function importRSSFeeds($xmlFile, $DB) {
+            $xml = simplexml_load_file($xmlFile);
+            foreach($xml as $feed) {
+                foreach($feed->outline as $thisFeed) {
+                    if($thisFeed->outline['type'] == "rss") {
+                            $DB->addFeedToDatabase($thisFeed['text'], $thisFeed['title'], "folder", "", "");
+                        foreach($thisFeed->outline as $feeds) {
+                            $DB->addFeedToDatabase($feeds['text'], $feeds['title'], $feeds['type'], $feeds['xmlUrl'], $feeds['htmlUrl']);
+                        }
+                        echo "<br /><br />";
+                    }
+                }
+            }
+        } //end importRSSFeeds($xmlFile)
     }//end class RSSFeed
 
-    if (isset($_GET['url'])) {
+    if (isset($_GET['url']) || isset($_POST['url'])) {
         $RSS = new RSSFeed();
         $RSS->getFeed($_GET['url']);
     }

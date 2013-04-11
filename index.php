@@ -76,8 +76,8 @@
                             <div class="collapse in" id="Apple">
                                 <ul class="nav nav-list">
                                     <li><a href="http://cultofmac.com.feedsportal.com/c/33797/f/606249/index.rss" class="feedName"><img src="img/exampleFiles/cultOfMac.png" alt="Cult of Mac" /> Cult of Mac</a></li>
-                                    <li><a href="#" class="feedName">Macworld</a></li>
-                                    <li><a href="#" class="feedName">iPad.AppStorm</a></li>
+                                    <li><a href="http://www.macworld.com/index.rss" class="feedName">Macworld</a></li>
+                                    <li><a href="http://feeds2.feedburner.com/ipadappstorm" class="feedName">iPad.AppStorm</a></li>
                                     <li><a href="#" class="feedName">iPhone.AppStorm</a></li>
                                     <li><a href="#" class="feedName">TUAW</a></li>
                                     <li><a href="#" class="feedName">Mac.AppStorm</a></li>
