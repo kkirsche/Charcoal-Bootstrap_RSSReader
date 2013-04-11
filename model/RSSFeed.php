@@ -72,6 +72,26 @@
                 }
             }
         } //end importRSSFeeds($xmlFile)
+
+        public function getFeedList() {
+            $lastType = "";
+            $DB = new Database();
+            $result = $DB->returnFeedList();
+            foreach($result as $individualFeed) {
+                    if($individualFeed['type'] == "folder") {
+                        if ($lastType == "rss") {
+                            echo "</ul></div>";
+                        }
+                        echo "<li><a href=\"#\" data-toggle=\"collapse\" data-target=\"#" . str_replace(" ", "", $individualFeed['title']) ."\"><i class=\"icon-folder-close\"></i>" . $individualFeed['title'] . "</a></li>";
+                        echo "<div class=\"collapse in\" id=\"" . str_replace(" ", "", $individualFeed['title']) . "\">";
+                        echo "<ul class=\"nav nav-list\">";
+                    } else if($individualFeed['type'] == "rss") {
+                        echo "<li><a href=\"" . $individualFeed['xmlUrl'] . "\" class=\"feedName\">" . $individualFeed['title'] . "</a></li>";
+                    }
+                    $lastType = $individualFeed['type'];
+                }
+            $DB->closeDatabaseConnection();
+        }
     }//end class RSSFeed
 
     if (isset($_GET['url']) || isset($_POST['url'])) {

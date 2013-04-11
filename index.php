@@ -72,26 +72,9 @@
                         <li class="divider"></li>
                         <li class="nav-header">Subscriptions</li>
                         <ul class="nav nav-list">
-                            <li><a href="#" data-toggle="collapse" data-target="#Apple"><i class="icon-folder-close"></i> Apple</a></li>
-                            <div class="collapse in" id="Apple">
-                                <ul class="nav nav-list">
-                                    <li><a href="http://cultofmac.com.feedsportal.com/c/33797/f/606249/index.rss" class="feedName"><img src="img/exampleFiles/cultOfMac.png" alt="Cult of Mac" /> Cult of Mac</a></li>
-                                    <li><a href="http://www.macworld.com/index.rss" class="feedName">Macworld</a></li>
-                                    <li><a href="http://feeds2.feedburner.com/ipadappstorm" class="feedName">iPad.AppStorm</a></li>
-                                    <li><a href="#" class="feedName">iPhone.AppStorm</a></li>
-                                    <li><a href="#" class="feedName">TUAW</a></li>
-                                    <li><a href="#" class="feedName">Mac.AppStorm</a></li>
-                                    <li><a href="#" class="feedName">9to5Mac</a></li>
-                                    <li><a href="#" class="feedName">MacRumors</a></li>
-                                </ul>
-                            </div>
-                            <li><a href="#"><i class="icon-folder-close"></i> AskMen</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> Dance Music</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> Design &amp; Development</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> iOS Development</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> Leadership</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> Learning</a></li>
-                            <li><a href="#"><i class="icon-folder-close"></i> Video Games</a></li>
+                            <?php
+                                $RSSFeed->getFeedList();
+                            ?>
                         </ul>
                     </ul>
                 </div><!--/div.span3-->

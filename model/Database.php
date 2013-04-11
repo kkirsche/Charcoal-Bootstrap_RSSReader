@@ -18,7 +18,7 @@ class Database {
             } else {
                 return $this->mysqli;
             }
-        }
+        }//end connectToDatabase()
 
         public function addFeedToDatabase($text, $title, $type, $xmlUrl, $htmlUrl) {
             //Step 1: Prepare our statement
@@ -42,15 +42,22 @@ class Database {
             $stmt->close();
         }//end addFeedToDatabase
 
-        public function getFeedList() {
-
-        }//end getFeedList()
+        public function returnFeedList() {
+            if(!$this->mysqli) {
+                $this->connectToDatabase();
+            }
+            if(!($result = mysqli_query($this->mysqli, "SELECT * FROM `rssFeeds`", MYSQLI_USE_RESULT))) {
+                echo "No luck getting a result from the database :(";
+            } else {
+                return $result;
+            }
+        }//end returnFeedList()
 
         public function closeDatabaseConnection() {
             if(!$this->mysqli->close()) {
                 echo "There was a problem closing the database connection.";
             }
-        }
+        }//end closeDatabaseConnection()
     }
 
 ?>
