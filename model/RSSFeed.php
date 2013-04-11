@@ -36,7 +36,16 @@
 
         public function getFeed($feed_url) {
             $content = file_get_contents($feed_url);
-            $xml = new SimpleXmlElement($content);
+            try { 
+                $xml = new SimpleXmlElement($content); 
+            } catch (Exception $e) { 
+                /* the data provided is not valid XML */
+                echo "<div class=\"alert alert-error span7\">"
+                . "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>"
+                . "<strong>Error!</strong> Invalid feed URL."
+                . "</div>";
+                return false; 
+            }
 
             foreach($xml->channel->item as $entry) {
                 $output = "";

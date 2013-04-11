@@ -57,13 +57,13 @@
                     <ul class="nav nav-list">
                         <li class="active"><a href="#">Home</a></li>
                         <li>
-                                <button class="btn" data-toggle="collapse" data-target="#subscribeToNewFeed">Subscribe <span class="caret"></span></button>
+                            <button class="btn" data-toggle="collapse" data-target="#subscribeToNewFeed">Subscribe <span class="caret"></span></button>
 
-                                <div id="subscribeToNewFeed" class="collapse in">
-                                    <form action="#" method="get">
-                                        <input type="text" class="span3" />
-                                    </form>
-                                </div>
+                            <div id="subscribeToNewFeed" class="collapse in">
+                                <form action="#" method="get">
+                                    <input type="text" class="span3" />
+                                </form>
+                            </div>
                         </li>
                         <li class="divider"></li>
                         <li class="nav-header">All Items</li>

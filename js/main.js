@@ -1,13 +1,5 @@
 $(document).ready(function() {
     "use strict";
-    function hideResponseDivs() {
-        var whatToHide = ["#error", "#loading"], i;
-        for (i = 0; i < 2; i++) {
-            $(whatToHide[i]).show();
-        }
-    }
-
-    hideResponseDivs();
 
     //Update the feed
     $("a.feedName").click(function(e) {
@@ -17,20 +9,14 @@ $(document).ready(function() {
         $.ajax('model/RSSFeed.php', {
             data: {url: feedURL},
             beforeSend: function() {
-                $("#feedBody").hide();
-                $("#loading").show();
+                $("#feedBody").html("<div class=\"alert alert-info span7\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button><strong>Loading Feed&hellip;</strong>");
             },
             cache: false,
             success: function(result) {
                 $("#feedBody").html(result);
-                $("#feedBody").show();
             },
             error: function(result) {
                 $("#feedBody").hide();
-            },
-            complete: function() {
-                $("#loading").hide();
-                $("#feedBody").show();
             }
         });
     });
