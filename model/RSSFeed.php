@@ -54,5 +54,10 @@
                 echo $output;
             }//end foreach($xml->channel->item as $entry)
         }//end getFeed($feed_url)
+    }//end class RSSFeed
+
+    if (isset($_GET['url'])) {
+        $RSS = new RSSFeed();
+        $RSS->getFeed($_GET['url']);
     }
 ?>

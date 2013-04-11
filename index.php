@@ -75,14 +75,14 @@
                             <li><a href="#" data-toggle="collapse" data-target="#Apple"><i class="icon-folder-close"></i> Apple</a></li>
                             <div class="collapse in" id="Apple">
                                 <ul class="nav nav-list">
-                                    <li><a href="#"><img src="img/exampleFiles/cultOfMac.png" alt="Cult of Mac" /> Cult of Mac</a></li>
-                                    <li><a href="#">Macworld</a></li>
-                                    <li><a href="#">iPad.AppStorm</a></li>
-                                    <li><a href="#">iPhone.AppStorm</a></li>
-                                    <li><a href="#">TUAW</a></li>
-                                    <li><a href="#">Mac.AppStorm</a></li>
-                                    <li><a href="#">9to5Mac</a></li>
-                                    <li><a href="#">MacRumors</a></li>
+                                    <li><a href="http://cultofmac.com.feedsportal.com/c/33797/f/606249/index.rss" class="feedName"><img src="img/exampleFiles/cultOfMac.png" alt="Cult of Mac" /> Cult of Mac</a></li>
+                                    <li><a href="#" class="feedName">Macworld</a></li>
+                                    <li><a href="#" class="feedName">iPad.AppStorm</a></li>
+                                    <li><a href="#" class="feedName">iPhone.AppStorm</a></li>
+                                    <li><a href="#" class="feedName">TUAW</a></li>
+                                    <li><a href="#" class="feedName">Mac.AppStorm</a></li>
+                                    <li><a href="#" class="feedName">9to5Mac</a></li>
+                                    <li><a href="#" class="feedName">MacRumors</a></li>
                                 </ul>
                             </div>
                             <li><a href="#"><i class="icon-folder-close"></i> AskMen</a></li>
@@ -95,13 +95,12 @@
                         </ul>
                     </ul>
                 </div><!--/div.span3-->
-                <div class="span7" id="feedBody">
-                    <article>
-                        <?php 
+                <div class="row">
+                    <div class="span7" id="feedBody">
+                        <?php
                             $RSSFeed->getFeed("http://feedproxy.google.com/nettuts");
                         ?>
-                    </article>
-                    <hr />
+                    </div>
                 </div>
             </div><!--/div.row-->
             <hr />
@@ -120,6 +119,7 @@
         <script src="js/main.js"></script>
         <script>
             $(".collapse").collapse();
+            $(".alert").alert();
         </script>
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
