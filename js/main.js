@@ -15,13 +15,12 @@ $(document).ready(function() {
             dataType: "html",
             success: function(result) {
                 $("#feedBody").html(result);
-                alert(result);
             },
             error: function(result) {
                 $("#feedBody").hide();
                 alert("Error!");
             },
-            type: "GET",
+            type: "GET"
         });
     });
 });

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Kevin subscriptions in Google Reader</title>
+    </head>
+    <body>
+        <outline title="iOS Development" text="iOS Development">
+            <outline text="#iPhoneDev" title="#iPhoneDev" type="rss"
+                xmlUrl="http://iphone.keyvisuals.com/feed/" htmlUrl="http://blog.keyvisuals.com"/>
+            <outline text="iPhone Programming Tutorials"
+                title="iPhone Programming Tutorials" type="rss"
+                xmlUrl="http://feeds.feedburner.com/icodeblog" htmlUrl="http://www.icodeblog.com"/>
+            <outline
+                text="iPhone Tutorial for Beginner | Programmer | Developer"
+                title="iPhone Tutorial for Beginner | Programmer | Developer"
+                type="rss" xmlUrl="http://adeem.me/blog/feed" htmlUrl="http://adeem.me/blog"/>
+            <outline text="Mobile Developer Tips"
+                title="Mobile Developer Tips" type="rss"
+                xmlUrl="http://feeds2.feedburner.com/IphoneDeveloperTips" htmlUrl="http://MobileDeveloperTips.com"/>
+            <outline text="Ray Wenderlich" title="Ray Wenderlich"
+                type="rss" xmlUrl="http://www.raywenderlich.com/feed" htmlUrl="http://www.raywenderlich.com"/>
+        </outline>
+        <outline text="News at FCB" title="News at FCB" type="rss"
+            xmlUrl="http://www.fcbarcelona.com/football/list/articles.rss" htmlUrl="http://www.fcbarcelona.com/football/list/articles"/>
+        <outline text="Web.AppStorm" title="Web.AppStorm" type="rss"
+            xmlUrl="http://feeds2.feedburner.com/webappstorm" htmlUrl="http://web.appstorm.net"/>
+        <outline title="Learning" text="Learning">
+            <outline
+                text="The Art of Manliness | Men's Interests and Lifestyle"
+                title="The Art of Manliness | Men's Interests and Lifestyle"
+                type="rss"
+                xmlUrl="http://feeds2.feedburner.com/TheArtOfManliness" htmlUrl="http://artofmanliness.com"/>
+        </outline>
+        <outline title="Video Games" text="Video Games">
+            <outline text="IGN PS3" title="IGN PS3" type="rss"
+                xmlUrl="http://feeds.ign.com/ignfeeds/ps3/" htmlUrl="http://pipes.yahoo.com/pipes/pipe.info?_id=60c9970f2d5df955db6c5bc8b4b72c0c"/>
+        </outline>
+        <outline title="AskMen" text="AskMen">
+            <outline text="Dating &amp; Sex on AskMen"
+                title="Dating &amp; Sex on AskMen" type="rss"
+                xmlUrl="http://www.askmen.com/rss/dating.rss" htmlUrl="http://www.askmen.com/"/>
+            <outline text="Health &amp; Sports on AskMen"
+                title="Health &amp; Sports on AskMen" type="rss"
+                xmlUrl="http://www.askmen.com/rss/sports.rss" htmlUrl="http://www.askmen.com/"/>
+            <outline text="Power &amp; Money on AskMen"
+                title="Power &amp; Money on AskMen" type="rss"
+                xmlUrl="http://www.askmen.com/rss/money.rss" htmlUrl="http://www.askmen.com/"/>
+        </outline>
+        <outline title="Design and Development" text="Design and Development">
+            <outline text="Ajaxian » Front Page"
+                title="Ajaxian » Front Page" type="rss"
+                xmlUrl="http://ajaxian.com/index.xml" htmlUrl="http://ajaxian.com"/>
+            <outline text="Nettuts+" title="Nettuts+" type="rss"
+                xmlUrl="http://feedproxy.google.com/nettuts-summary" htmlUrl="http://net.tutsplus.com"/>
+            <outline text="Psdtuts+" title="Psdtuts+" type="rss"
+                xmlUrl="http://feeds.feedburner.com/psdtuts-summary" htmlUrl="http://psd.tutsplus.com"/>
+            <outline text="Smashing Magazine Feed"
+                title="Smashing Magazine Feed" type="rss"
+                xmlUrl="http://rss1.smashingmagazine.com/feed/" htmlUrl="http://www.smashingmagazine.com/"/>
+            <outline text="Vectortuts+" title="Vectortuts+" type="rss"
+                xmlUrl="http://feeds.feedburner.com/vectortuts-summary" htmlUrl="http://vector.tutsplus.com"/>
+            <outline text="Webdesigntuts+" title="Webdesigntuts+"
+                type="rss"
+                xmlUrl="http://feeds.feedburner.com/webdesigntuts-summary" htmlUrl="http://webdesign.tutsplus.com"/>
+            <outline text="Wptuts+" title="Wptuts+" type="rss"
+                xmlUrl="http://feeds.feedburner.com/Wptuts-Summary" htmlUrl="http://wp.tutsplus.com"/>
+        </outline>
+        <outline title="Apple" text="Apple">
+            <outline text="9to5Mac" title="9to5Mac" type="rss"
+                xmlUrl="http://9to5mac.com/feed/" htmlUrl="http://9to5mac.com"/>
+            <outline text="Cult of Mac" title="Cult of Mac" type="rss"
+                xmlUrl="http://cultofmac.com.feedsportal.com/c/33797/f/606249/index.rss" htmlUrl="http://www.cultofmac.com"/>
+            <outline
+                text="iPad.AppStorm | iPad App Reviews, Roundups &amp; How-Tos"
+                title="iPad.AppStorm | iPad App Reviews, Roundups &amp; How-Tos"
+                type="rss" xmlUrl="http://ipad.appstorm.net/feed/" htmlUrl="http://ipad.appstorm.net"/>
+            <outline text="iPhone.AppStorm" title="iPhone.AppStorm"
+                type="rss"
+                xmlUrl="http://feeds2.feedburner.com/Iphoneappstorm" htmlUrl="http://iphone.appstorm.net"/>
+            <outline text="Mac.AppStorm" title="Mac.AppStorm" type="rss"
+                xmlUrl="http://feeds2.feedburner.com/macappstorm" htmlUrl="http://mac.appstorm.net"/>
+            <outline text="MacRumors: Mac News and Rumors - All Stories"
+                title="MacRumors: Mac News and Rumors - All Stories"
+                type="rss"
+                xmlUrl="http://feeds.macrumors.com/MacRumors-All" htmlUrl="http://www.macrumors.com"/>
+            <outline text="Macworld" title="Macworld" type="rss"
+                xmlUrl="http://rss.macworld.com/macworld/feeds/main" htmlUrl="http://www.macworld.com"/>
+            <outline text="TUAW - The Unofficial Apple Weblog"
+                title="TUAW - The Unofficial Apple Weblog" type="rss"
+                xmlUrl="http://www.tuaw.com/rss.xml" htmlUrl="http://www.tuaw.com"/>
+        </outline>
+        <outline title="Productivity" text="Productivity">
+            <outline
+                text="Asian Efficiency - Time Management and Productivity"
+                title="Asian Efficiency - Time Management and Productivity"
+                type="rss"
+                xmlUrl="http://feeds.feedburner.com/asianefficiency" htmlUrl="http://www.asianefficiency.com"/>
+            <outline text="Dumb Little Man - Tips for Life"
+                title="Dumb Little Man - Tips for Life" type="rss"
+                xmlUrl="http://feeds.feedburner.com/dumblittleman" htmlUrl="http://www.dumblittleman.com/"/>
+        </outline>
+        <outline title="Leadership" text="Leadership">
+            <outline text="Inc.com" title="Inc.com" type="rss"
+                xmlUrl="http://www.inc.com/rss/homepage.xml" htmlUrl="http://www.inc.com/"/>
+        </outline>
+        <outline title="Dance Music" text="Dance Music">
+            <outline text="Dancing Astronaut" title="Dancing Astronaut"
+                type="rss"
+                xmlUrl="http://feeds.feedburner.com/DancingAstronaut" htmlUrl="http://www.dancingastronaut.com"/>
+            <outline text="Electric Zoo Festival"
+                title="Electric Zoo Festival" type="rss"
+                xmlUrl="http://www.madeevent.com/ElectricZoo/rss.php" htmlUrl="http://www.madeevent.com/ElectricZoo/rss.php"/>
+            <outline text="Ultra Music Festival"
+                title="Ultra Music Festival" type="rss"
+                xmlUrl="http://www.ultramusicfestival.com/news/feed/" htmlUrl="http://ultramusicfestival.com"/>
+        </outline>
+    </body>
+</opml>

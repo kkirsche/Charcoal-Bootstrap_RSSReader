@@ -1,7 +1,7 @@
 <?php
     //Hanlde all actions related to RSS Feeds
     require_once('Database.php');
-    require_once("model/simplepie/autoloader.php");
+    require_once("simplepie/autoloader.php");
     function shorten($string, $length)
     {
         // By default, an ellipsis will be appended to the end of the text.
@@ -31,7 +31,8 @@
     class RSSFeed {
 
         public function getFeed($feed_url) {
-            $feed = new SimplePie($feed_url);
+            $feed = new SimplePie();
+            $feed->set_feed_url($feed_url);
             $feed->init();
             $feed->handle_content_type();
             foreach ($feed->get_items() as $item) {
